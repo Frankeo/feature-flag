@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "name": "Deno Tests",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/test",
+        "runtimeExecutable": "deno",
+        "runtimeArgs": [
+            "test",
+            "--inspect-brk=127.0.0.1:9229",
+            "${file}"
+        ],
+        "port": 9229,
+    }
+    ]
+}

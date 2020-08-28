@@ -1,0 +1,16 @@
+{
+    "name": "Feature flags",
+    "version": "1.0",
+    "description": "An extension for update feature flags of .NET projects",
+    "permissions": ["storage", "downloads"],
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/feature-flag168.png",
+        "24": "images/feature-flag168.png",
+        "32": "images/feature-flag168.png"
+      },
+      "default_title": "Set Feature Flags .NET project"
+    },
+    "manifest_version": 2
+  }

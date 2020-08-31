@@ -1,12 +1,12 @@
 import {
     assertEquals,
 } from "https://deno.land/std@0.64.0/testing/asserts.ts";
-import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.0-alpha2/deno-dom-wasm.ts";
-import { getCheckboxId, createOption, CONTENT } from "../src/window.js";
+import { getCheckboxId } from "../src/utils.js";
+import { renderOption } from '../src/logic/render.js'
 
 Deno.test("should return an Id with same value as property", () => {
     const propertyName = "SomeProp";
-    const option = createOption(propertyName);
+    const option = renderOption(propertyName);
     const checkboxId = getCheckboxId(option);
     assertEquals(checkboxId, propertyName);
 });

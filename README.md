@@ -17,7 +17,7 @@ At last, click in save button for persist the changes.
 
 - [ ] Better UI.
 - [ ] Adding more test.
-- [x] Split the logic into different files. #1.
+- [x] [Split the logic into different files](https://github.com/Frankeo/feature-flag/issues/1).
 - [ ] Remember the file's name whenever is upload to use it in future actions.
 - [ ] Adding script for building the extension and upload it in google chrome market.
 - [ ] Adding github actions for running the tests and build the extension.

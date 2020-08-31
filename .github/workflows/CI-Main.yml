@@ -25,6 +25,6 @@ jobs:
       - name: Deno Test
         run: deno test test/
       - name: Zip src Folder
-        run: cd src/ | zip -r release.zip
+        run: zip -r release.zip . -x ".git/*" ".github/*" ".gitignore" ".vscode/*" "README.md" "test/*"
       - name: Upload Artifact
         run: echo "Release"

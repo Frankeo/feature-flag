@@ -26,9 +26,10 @@ jobs:
         run: deno test test/
       - name: Zip src Folder
         run: zip -r Release.zip . -x ".git/*" ".github/*" ".gitignore" ".vscode/*" "README.md" "test/*"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+      - name: Create .crx file
+        uses: cardinalby/webext-buildtools-chrome-crx-action@2.0.0
         with:
-          name: chrome-extension
-          path: Release.zip
+          zipFilePath: Release.zip
+          crxFilePath: feature-flag.crx
+          privateKey: 12
         

@@ -25,6 +25,10 @@ jobs:
       - name: Deno Test
         run: deno test test/
       - name: Zip src Folder
-        run: zip -r release.zip . -x ".git/*" ".github/*" ".gitignore" ".vscode/*" "README.md" "test/*"
+        run: zip -r Release.zip . -x ".git/*" ".github/*" ".gitignore" ".vscode/*" "README.md" "test/*"
       - name: Upload Artifact
-        run: echo "Release"
+        uses: actions/upload-artifact@v2
+        with:
+          name: chrome-extension
+          path: Release.zip
+        

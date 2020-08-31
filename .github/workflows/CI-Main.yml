@@ -32,4 +32,8 @@ jobs:
           zipFilePath: Release.zip
           crxFilePath: feature-flag.crx
           privateKey: ${{ secrets.CHROME_KEY }}
-        
+      - name: Upload .crx as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: chrome-extension
+          path: feature-flag.crx

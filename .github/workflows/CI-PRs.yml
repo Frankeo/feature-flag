@@ -1,0 +1,26 @@
+name: Deno CI on PRs
+
+on: 
+  pull_request:
+      branches:
+        - master
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        deno-version: [1.2.2]
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+      - name: Use Deno Version ${{ matrix.deno-version }}
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno-version }}
+      - name: Deno Lint 
+        run: deno fmt --check
+      - name: Deno Test
+        run: deno test test/

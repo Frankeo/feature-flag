@@ -26,3 +26,6 @@ jobs:
         run: deno test test/
       - name: Zip src Folder
         run: cd src/ | zip -r release.zip
+      - name: Upload Artifact
+      - name: Release to Github
+        run: echo "Release"

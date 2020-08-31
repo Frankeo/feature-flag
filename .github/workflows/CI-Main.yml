@@ -31,5 +31,5 @@ jobs:
         with:
           zipFilePath: Release.zip
           crxFilePath: feature-flag.crx
-          privateKey: 12
+          privateKey: ${{ secrets.CHROME_KEY }}
         

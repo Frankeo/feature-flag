@@ -27,11 +27,10 @@ jobs:
       - name: Create .pem Key
         run: |
             touch src.pem
-            src.pem <<< ${{ secrets.CHROME_KEY }}
+            echo ${{ secrets.CHROME_KEY }} >> src.pem
       - name: Create .crx file
         run: google-chrome --pack-extension=src --pack-extension-key=src.pem
       - name: Upload .crx as Artifact
-        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: chrome-extension

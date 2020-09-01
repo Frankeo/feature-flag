@@ -32,8 +32,8 @@ jobs:
             echo "$CROME_CRX_KEY" >> src.pem
       - name: Create .crx file
         run: |
-            npm install crx
-            npm run crx pack src -p src.pem -f src.crx
+            npm install crx3
+            npm run crx3 src
       - name: Upload .crx as Artifact
         uses: actions/upload-artifact@v2
         with:

@@ -25,8 +25,10 @@ jobs:
       - name: Deno Test
         run: deno test test/
       - name: Create .crx file
-        run: google-chrome --pack-extension=src --pack-extension-key=${{ secrets.CHROME_KEY }}
+        run: google-chrome --pack-extension=src --pack-extension-key=${{ secrets.CHROME_KEY }} |
+             echo ::set-output name=exit_code::$?
       - name: Upload .crx as Artifact
+        if: steps.build.outputs.exit_code == 1
         uses: actions/upload-artifact@v2
         with:
           name: chrome-extension

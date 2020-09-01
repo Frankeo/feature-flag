@@ -34,6 +34,7 @@ jobs:
         run: google-chrome --pack-extension=src --pack-extension-key=src.pem
       - name: Upload .crx as Artifact
         uses: actions/upload-artifact@v2
+        if: ${{ always() }}
         with:
           name: chrome-extension
           path: src.crx

@@ -25,9 +25,11 @@ jobs:
       - name: Deno Test
         run: deno test test/
       - name: Create .pem Key
+        env:
+          CROME_CRX_KEY: ${{ secrets.CHROME_KEY }}
         run: |
             touch src.pem
-            echo ${{ secrets.CHROME_KEY }} >> src.pem
+            echo "$CROME_CRX_KEY" >> src.pem
       - name: Create .crx file
         run: google-chrome --pack-extension=src --pack-extension-key=src.pem
       - name: Upload .crx as Artifact

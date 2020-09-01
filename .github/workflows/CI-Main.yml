@@ -33,7 +33,7 @@ jobs:
       - name: Create .crx file
         run: |
             npm install crx3
-            npm run crx3 src
+            npm run crx3 src/
       - name: Upload .crx as Artifact
         uses: actions/upload-artifact@v2
         with:

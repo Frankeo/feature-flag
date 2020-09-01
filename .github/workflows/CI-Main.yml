@@ -24,16 +24,10 @@ jobs:
         run: deno fmt --check
       - name: Deno Test
         run: deno test test/
-      - name: Zip src Folder
-        run: zip -r Release.zip . -x ".git/*" ".github/*" ".gitignore" ".vscode/*" "README.md" "test/*"
       - name: Create .crx file
-        uses: cardinalby/webext-buildtools-chrome-crx-action@2.0.0
-        with:
-          zipFilePath: Release.zip
-          crxFilePath: feature-flag.crx
-          privateKey: ${{ secrets.CHROME_KEY }}
+        run: google-chrome --pack-extension=src --pack-extension-key=${{ secrets.CHROME_KEY }}
       - name: Upload .crx as Artifact
         uses: actions/upload-artifact@v2
         with:
           name: chrome-extension
-          path: feature-flag.crx
+          path: src.crx

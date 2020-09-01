@@ -31,10 +31,11 @@ jobs:
             touch src.pem
             echo "$CROME_CRX_KEY" >> src.pem
       - name: Create .crx file
-        run: google-chrome --pack-extension=src --pack-extension-key=src.pem
+        run: |
+            npm install crx
+            crx pack src -p src.pem -f src.crx
       - name: Upload .crx as Artifact
         uses: actions/upload-artifact@v2
-        if: ${{ always() }}
         with:
           name: chrome-extension
           path: src.crx
